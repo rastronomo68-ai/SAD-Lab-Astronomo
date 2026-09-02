@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Record Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Student Record Management System</h1>
+      <p class="subtitle">Simple CRUD Information System</p>
+
+      <form id="studentForm">
+        <input type="hidden" id="recordId">
+
+        <div class="form-grid">
+          <div>
+            <label for="studentId">Student ID</label>
+            <input id="studentId" type="text" placeholder="e.g. 2026-001" required>
+          </div>
+
+          <div>
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" placeholder="e.g. Juan Dela Cruz" required>
+          </div>
+
+          <div>
+            <label for="program">Program</label>
+            <input id="program" type="text" placeholder="e.g. BSIT" required>
+          </div>
+
+          <div>
+            <label for="yearLevel">Year Level</label>
+            <select id="yearLevel" required>
+              <option value="">Select year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="e.g. student@example.com" required>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" id="saveButton">Add Student</button>
+          <button type="button" id="cancelButton" class="secondary hidden">Cancel Edit</button>
+        </div>
+
+        <p id="message" class="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="table-header">
+        <div>
+          <h2>Student Records</h2>
+          <p class="subtitle">Records stored in Supabase</p>
+        </div>
+        <button id="refreshButton" class="secondary">Refresh</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Full Name</th>
+              <th>Program</th>
+              <th>Year Level</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <tr><td colspan="6" class="empty">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
